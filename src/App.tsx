@@ -1,4 +1,3 @@
-import "./App.css";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
@@ -7,6 +6,7 @@ import Women from "./pages/Women";
 import DeliveryInfo from "./pages/DeliveryInfo";
 import WishList from "./pages/WishList";
 import Payments from "./pages/Payments";
+import CheckOut from "./pages/CheckOut";
 
 function App() {
   return (
@@ -38,6 +38,10 @@ function App() {
       <Route
         path="/payments"
         element={<Payments />}
+      />
+      <Route
+        path="/checkout"
+        element={<CheckOut />}
       />
     </Routes>
   );

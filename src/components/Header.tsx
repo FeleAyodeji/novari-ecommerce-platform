@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <header className=" bg-white border-b border-white">
-      <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
+    <header className="bg-white border-b border-white">
+      {/* 1. Added 'relative' to this container so the Nav can position itself relative to this box */}
+      <div className="relative flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center gap-3 flex-shrink-0"
+          className="flex items-center gap-3 shrink-0"
         >
           <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center">
             <div className="w-6 h-6 border-2 border-white rotate-45 rounded-sm"></div>
@@ -19,8 +20,10 @@ export function Header() {
           </span>
         </Link>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Navigation - CENTERED FIX */}
+        {/* 2. Added 'absolute left-1/2 -translate-x-1/2' 
+            This ignores the width of neighbors and forces true center */}
+        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
           <Link
             to="/"
             className="text-foreground hover:text-primary transition-colors"
@@ -60,6 +63,7 @@ export function Header() {
         </nav>
 
         {/* Search and Icons */}
+        {/* We keep ml-auto here, or just let justify-between handle the spacing */}
         <div className="flex items-center gap-4 ml-auto">
           {/* Search Bar */}
           <div className="hidden lg:flex items-center gap-3 bg-secondary px-4 py-2 rounded-lg border border-border">

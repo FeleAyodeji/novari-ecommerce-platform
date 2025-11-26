@@ -1,5 +1,7 @@
 "use client";
 
+import { Link } from "react-router-dom";
+
 interface OrderSummaryProps {
   subtotal: number;
   shipping: number;
@@ -42,12 +44,14 @@ export function OrderSummary({ subtotal, shipping, total }: OrderSummaryProps) {
       </div>
 
       {/* Checkout Button */}
-      <button
-        className="w-full bg-slate-900 text-white font-semibold py-3 rounded-lg hover:bg-slate-800 transition-colors duration-200"
-        aria-label="Proceed to checkout"
-      >
-        Proceed to Checkout
-      </button>
+      <Link to="/checkout">
+        <button
+          className="w-full bg-slate-900 text-white font-semibold py-3 rounded-lg hover:bg-slate-800 transition-colors duration-200"
+          aria-label="Proceed to checkout"
+        >
+          Proceed to Checkout
+        </button>
+      </Link>
 
       {/* Continue Shopping Link */}
       <a
